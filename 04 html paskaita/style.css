@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+.title-01 {
+    color: aqua;
+    font-size: 84px;
+    font-weight: 200;
+    font-family: "Oswald", sans-serif;
+}
+
+.title-02 {
+    color: blue;
+}
+
+div {
+    color: blueviolet;
+    font-size: 70px;
+    font-weight: 200;
+    font-family: "Oswald", sans-serif;
+}
+
+.box-1 {
+
+    border: 8px solid skyblue;
+    height: 100px;
+    width: 300px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 50px;
+}
+
+.container {
+    font-size: 0;
+    width: 80%;
+    max-width: 1000%;
+    margin: auto;
+}
+
+.box-2 {
+
+    border: 8px solid red;
+    height: 100px;
+    width: 30.33%;
+    display: inline-block;
+}
+
+.center-container{ width: 100%;}

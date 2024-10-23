@@ -1,0 +1,18 @@
+h1{
+    
+    color:#8a2be255;
+
+  }
+
+p{ 
+    
+    color:skyblue
+
+  }
+
+  p.big {color:brown;font-size: x-large;}
+
+  .big { color:brown}
+
+  p.big {color:brown}
+

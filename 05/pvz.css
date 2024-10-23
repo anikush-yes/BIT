@@ -1,0 +1,27 @@
+
+
+
+h1 { text-align: center;}
+
+.container
+
+{ width: 100%;}
+
+.column
+
+{ width:30%;
+    float:left;
+    margin:1.5%;}
+
+.image {width: 100%;
+
+}
+
+.card {border:1px solid black;
+
+margin-bottom: 15px;
+padding: 15px;
+border-radius: 5px;
+;
+
+}

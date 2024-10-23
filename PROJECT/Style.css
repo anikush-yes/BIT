@@ -1,0 +1,131 @@
+body {
+    background-image: url(img/wallpaper.jpg);
+    margin: 0px;
+    font-family: "Oswald", sans-serif
+}
+
+
+header {
+    background-color: burlywood;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1px;
+
+}
+
+h1 {
+
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+header nav {
+
+    width: 100%;
+    max-width: 1200%;
+    margin: 0;
+}
+
+header nav a {
+
+    color: saddlebrown;
+    text-decoration: none;
+    margin-right: 30px;
+    margin-left: 15px;
+    padding: 20px;
+    transition: 1.3s;
+
+}
+
+
+header nav svg {
+
+    width: 20%;
+    margin: auto;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 0 20px 0 100px;
+    fill: saddlebrown;
+    right: 0;
+    top: 40px
+}
+
+
+h1 {
+    text-align: left;
+    padding: 20px 10px;
+    color: saddlebrown;
+    font-family: Arial;
+}
+
+
+
+.filled {
+    border: 9px solid rgb(194, 114, 58);
+    border-radius: 5px;
+}
+
+
+
+main {
+    background-color: burlywood;
+    border-radius: 5px;
+    width: 100%;
+    padding: 0;
+}
+
+h2 {
+    color: saddlebrown;
+    text-align: center;
+    font-size: x-large;
+    padding: 01px 01px;
+
+
+}
+
+
+.center-container {
+
+    width: 100%;
+    bottom: 10px
+}
+
+
+
+table,
+th,
+td {
+
+    text-align: center;
+    color: saddlebrown;
+    border: 1px solid saddlebrown;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+}
+
+th {
+    color: rgb(131, 57, 4);
+    background-color: rgb(209, 130, 74);
+    margin-top: 100;
+}
+
+footer a {
+
+    text-align: center;
+    color: rgb(151, 81, 20);
+    font-size: x-large;
+    background-color: burlywood;
+
+    border-radius: 10px;
+    padding: auto;
+    text-decoration: none;
+
+}
+
+footer center img {
+
+    margin-left: 80px;
+}

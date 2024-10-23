@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+:root {
+
+    --lightViolet: #9A54BC;
+    --midViolet: #60267F;
+    --darkViolet: #2B0236;
+
+
+
+}
+
+
+body {
+
+    font-family: "Roboto", sans-serif;
+
+}
+
+/* pasikartos sitas rools, kur reikia sio sablono */
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+.purpleLine {
+
+
+    width: 100%;
+    height: 50px;
+    background: #60267F;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.purpleLine a {
+
+    color: white;
+}
+
+.mainHeader {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    padding: 15px 30px;
+    border-bottom: rgba(220, 220, 220, 0.459) 3px solid;
+
+
+}
+
+
+.navigationContainer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.navigationContainer nav ul {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+
+}
+
+.navigationContainer nav ul li {
+
+    list-style: none;
+    font-size: 14px;
+
+}
+
+.navigationContainer nav ul li a {
+
+    text-decoration: none;
+    font-weight: 800;
+    color: var(--darkViolet);
+
+}
+
+.navigationContainer nav ul li a:hover {
+
+    color: #856099;
+}
+
+.headerBtn {
+
+    padding: 5px 10px;
+    background-color: transparent;
+    border: #856099 solid 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--lightViolet);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+
+
+}
+
+.headerBtn:hover {
+
+    background-color: #856099;
+    color: white;
+
+
+}
+
+.sectionOnecontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+.sectionOnetext {
+
+    font-size: 40px;
+    text-align: center;
+    color: #2B0236;
+    ;
+
+
+}
+
+.sectionOneBtn {
+    padding: 15px 20px;
+    background-color: var(--lightViolet);
+    border: var(--lightViolet) 1px solid;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    /* button veiks kaip animacija su ease-in-out */
+    transition: all 0.6s ease-in-out;
+
+
+
+}
+
+.sectionOneBtn:hover {
+
+    background-color: white;
+    color: var(--midViolet);
+    /* nesimato shadow?? */
+    box-shadow: 0px 10px 20px 0px #0c0b0b1a;
+
+}
+
+.sectionTwoEllipseContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 450px;
+}
+
+.absolute {
+
+    position: absolute;
+}
+
+.ellipseSmall {
+    top: -380px;
+
+}
+
+.rectangle {
+
+    top: -350px;
+
+}
+
+.ellipseLogo {
+
+    top: -100px;
+}
+
+.ellipseBth {
+
+    bottom: -330px;
+    padding: 15px 20px;
+    background-color: white;
+    border: var(--lightViolet) 1px solid;
+    border-radius: 5px;
+    color: var(--lightViolet);
+    font-weight: 600;
+    cursor: pointer;
+    /* button veiks kaip animacija su ease-in-out */
+    transition: all 0.6s ease-in-out;
+
+}
+
+.ellipseBth:hover {
+
+    background-color: var(--lightViolet);
+    color: white;
+    /* nesimato shadow?? */
+    box-shadow: 0px 10px 20px 0px #0c0b0b1a;
+
+
+}
+
+.iconsContainer {
+    width: 100%;
+    margin-top: 550px;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.iconsContainer h2 {
+
+    font-size: 36px;
+}
+
+.icons {
+
+    width: 80%;
+    justify-content: space-around;
+
+
+}
+
+.howDoesCollabAppHelp {
+width: 100%;
+    margin-top: 150px;
+    flex-direction: column;
+}
+
+.textAndImgContainer {
+
+    width: 75%
+}
+
+.textCnt {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.ancorcnt {
+    width: 100%;
+    background-color: white;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 2.7px 3.6px 0px #00000017;
+    
+
+
+}
+
+.ancorcnt a {
+
+    text-decoration: none;
+    width: 50%;
+    text-align: center;
+    padding: 10px 0;
+
+}
+
+.ancorcnt a:hover {
+
+
+    background-color: var(--midViolet);
+    border: 2px solid var(--lightViolet);
+    color: white;
+}
+
+
+
+.paraCnt {
+
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.textContainerParagraph {
+
+    background-color: #F2F2F2;
+    width: 550px;
+    padding: 30px 10px;
+
+}
+
+
+.textContainerParagraph {
+font-size: 14px;
+font-weight: 500;
+
+}
+
+.imgCnt {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 50%;
+   
+    
+
+}
+.imgCnt img{
+
+    margin-top: 220px;
+    width: 400px
+
+
+
+
+}
