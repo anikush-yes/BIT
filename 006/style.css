@@ -1,0 +1,42 @@
+h1 span {
+    color: crimson
+}
+
+#nr1 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid lightcoral;
+    margin: 50px;
+    flex-wrap: wrap;
+
+    div {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid lightgreen;
+        margin: 30px;
+        flex-wrap: wrap;
+        /* width: 100px; */
+        /* height: 100px; */
+
+
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid lightskyblue;
+            margin: 20px;
+            flex-wrap: wrap;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+
+}
