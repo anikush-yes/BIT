@@ -1,5 +1,6 @@
 console.log('Pradedam');
-//1
+//1 Naudodami JS į tagus h1 - h4 įrašykite skaičius nuo 1 iki 4 (skaičius atitinka tagą).
+
 
 const tagH1 = document.querySelector('h1')
 const tagH2 = document.querySelector('h2')
@@ -12,7 +13,8 @@ tagH2.innerText = 2;
 tagH3.innerText = 3;
 tagH4.innerText = 4;
 
-//2
+//2 Naudodami JS iš vieno div tago padarykite mėlyną keturkampį, o iš kito raudoną apskritimą.
+
 
 const div1 = document.querySelector('div:nth-of-type(1)');
 div1.style.width = '20px';
@@ -25,7 +27,8 @@ div2.style.height = '20px';
 div2.style.backgroundColor = 'red';
 div2.style.borderRadius = '50%';
 
-//3
+//3 Sukurkite du kintamuosius ir naudodamiesi funkcija rand() jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. Didesnę reikšmę padalinkite iš mažesnės. Kintamuosius ir gautą rezultatą įrašykite į atitinkamus span tagus, esančius section tage su id=go3.
+
 
 // Random funcija bendrą visam JS":
 
@@ -108,7 +111,7 @@ else {
 // innerHTML pagrinde skiriasi tuo, kad jame yra ne tik elementų tekstas, bet ir visi juose esantys tagai.
 
 
-//4
+//4 Sukurkite tris kintamuosius ir naudodamiesi funkcija rand() jiems priskirkite atsitiktines reikšmes nuo 50 iki 200. Iš section tage su id=go4 esančių div tagų padarykite atitinkamo dydžio (px) apskritimus. Apskritimai turi būti išdėlioti eilute nuo mažiausio iki didžiausio.
 
 function code4() {
 	const sizes = [];
@@ -156,7 +159,8 @@ function code4() {
 
 code4();
 
-//5
+//5 Naudokite funkcija rand(). Į section tage su id=go5 esančius span įrašykite 3 skaičius nuo -10 iki 10. Skaičius mažesnių už 0 spausdinkite raudonai,  didesnius už 0 mėlynai, o 0 žaliai.
+
 
 //Deklaruojam kintamaji kuris pasiima visus span elementus is #go5;
 const skaicius1 = document.querySelectorAll("#go5 span");
@@ -204,7 +208,8 @@ function code5(element) {
 //Issaukiam funkcija vietoj element rasom skaicius1 nes ji mes norime madifikuoti
 code5(skaicius1)
 
-//6
+//6 Įmonė parduoda žvakes po 1 EUR. Perkant daugiau kaip 1000 EUR taikoma 3 % nuolaida, daugiau kaip už 2000 EUR - 4 % nuolaida. Parašykite skriptą, kuris skaičiuos žvakių kainą ir užpildykite formą easnčią section tage su id=go6. Žvakių kiekį generuokite ​rand() funkcija nuo 5 iki 3000.
+
 
 let kaina1;
 let nuolaida;
@@ -241,7 +246,8 @@ span6_3.innerText = nuolaida;
 const span6_4 = document.querySelector("#go6 > p:nth-child(5) > span");
 span6_4.innerText = kaina1;
 
-//7
+//7 Naudokite funkciją rand(). Parašykite skriptą, kuris atsitiktine tvarka generuotų ir iš section su  id=go7 esančio div tago padarytų apskritimą, arba keturkampį arba trikampį.
+
 
 const div = document.querySelector('section#go7 div')
 
@@ -270,7 +276,8 @@ else {
 
 console.log(figura);
 
-//8
+//8 Suskaičiuoti kiek kiekvienos spalvos apskritimų yra section su id=go8. Rezultatus įrašyti į šalia tam skirtas vietas.
+
 
 const uzduotis8span1 = document.querySelector('section#go8 [data-green] span');
 const uzduotis8span2 = document.querySelector('section#go8 [data-red] span');
@@ -362,7 +369,8 @@ uzduotis8span3.innerText = raudonas;
 // const uzduotis9ketvirtaeilutespan3 = document.querySelector('#go9 [data-row-3] span:nth-of-type(3)');
 
 
-//9
+//9 Užpildyti daugybos lentelę, esančią tage section su id=go9.
+
 // kiekviena diva issiimu i lista:
 
 const rows9 = document.querySelectorAll('#go9 div');
@@ -384,7 +392,8 @@ for (let i = 0; i < rows9.length; i++) {
 
 }
 
-//10
+//10 Keturkapius, esančius tage section su id=go10, kurių plotas didesnis nei 10000 (px) nuspalvinkite raudonai.
+
 
 const uzduotis10div1 = document.querySelector("#go10 > div:nth-child(1)");
 const uzduotis10div2 = document.querySelector("#go10 > div:nth-child(2)");
