@@ -90,6 +90,36 @@ for (let i = 0; i < 8; i++) {
     // Čia bandoma priskirti Html kintamąjį, kuris arba nėra apibrėžtas, arba yra nereikalingas. Kadangi elementai jau buvo pridėti naudojant appendChild, šis žingsnis nėra reikalingas ir iš tikrųjų gali pašalinti ankstesnį darbą.
 }
 
+//5. Naršyklėje nupieškite daygybos lentelę 4 dauginant iš skaičių nuo 4 iki 14.
+
+
+const uzd5 = document.querySelector ('#uzd5');
+let cell = '';
+
+for (let i = 4; i <= 14; i++) {
+    cell += `<div>4 x ${i} = ${4 * i}</div>`;
+}
+
+uzd5.innerHTML = cell;
+
+
+//6.  Naršyklėje nupieškite linija iš 444 “*” (tarp žvaigždučių tarpų nėra). Programiškai “suskaldykite” (naudodami tagus atskirom žvaigždučių grupėm) žvaigždutes taip, kad vienoje eilutėje nebūtų daugiau nei 44 “*”.
+
+const uzd6 = document.querySelector ('#uzd6');
+
+let stars = '';
+
+for(let i = 0; i < 444; i++){
+if ((i + 1) % 44 === 0){
+    stars += '<br>'
+} else {
+    stars += '*';
+}
+
+}
+
+uzd6.innerHTML += stars;
+
 
 //7. Naršyklėje nupieškite 14 atsitiktinių spalvų kvadratų esančių vienas kitame (“matrioška”).
 
