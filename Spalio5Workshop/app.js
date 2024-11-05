@@ -95,27 +95,90 @@ let largeSquares = nmbr.filter(nmbr => nmbr * nmbr > 50);
 
 console.log(largeSquares);
 
-
+//------------------------------------------------------------------------------
  
 // Didžiausio skaičiaus paieška sąraše
 // Sukurkite sąrašą skaičių ir raskite didžiausią skaičių. Tikrinkite kiekvieną reikšmę cikle.
-// let numbers = [3, 45, 23, 67, 12, 90, 34];
+let skaiciai = [3, 45, 23, 67, 12, 90, 34];
  
- 
- 
+let didziausias = skaiciai[0]; // Pradžioje didžiausią reikšmę laikome pirmąja sąrašo reikšme
+
+for (let i = 1; i < skaiciai.length; i++) {
+    if (skaiciai[i] > didziausias) { // Jei dabartinis skaičius yra didesnis už esamą didžiausią
+        didziausias = skaiciai[i]; // Naują didžiausią reikšmę priskiriame dabartiniam skaičiui
+    }
+}
+
+console.log("Didžiausias skaičius sąraše yra: " + didziausias);
+
+ //--------------------------------------------------------------------------------------------
  
 // Raidžių skaičiavimas žodyje
 // Sukurkite žodį ir suskaičiuokite, kiek kartų žodyje pasikartoja raidė „a“.
-// let word = "banana";
+
+let bananaWord = "banana";
+
+let count = 0; // Inicijuojame skaitiklį
+
+for (let i = 0; i < bananaWord.length; i++) {
+    if (bananaWord[i] === 'a') { // Patikriname, ar dabartinė raidė yra „a“
+        count++; // Jei taip, didiname skaitiklį
+    }
+}
+
+console.log("Raidė „a“ žodyje pasikartoja " + count + " kartus.");
  
+//--------------------------------------------------------------------------------------------------
  
 // Amžių filtravimas sąraše
 // Sukurkite sąrašą žmonių amžių. Išspausdinkite tik tuos, kurie yra vyresni nei 18.
+
+//budas naudojant filter:
+
 // let ages = [12, 17, 22, 19, 15, 30, 18];
+
+// let adults = ages.filter(age => age >18);
+
+// console.log("Žmonės, vyresni nei 18 metų:", adults);
+
+
+//2as variantas su for ciklu:
+
+let ages = [12, 17, 22, 19, 15, 30, 18];
+let adults = [];
+
+for (let i = 0; i < ages.length; i++) {
+    if (ages[i] > 18) { // Tikriname, ar amžius didesnis nei 18
+        adults.push(ages[i]); // Pridedame prie naujo sąrašo
+    }
+}
+
+console.log("Žmonės, vyresni nei 18 metų:", adults);
  
- 
+ //------------------------------------------------------------------------------------
  
 // Skaičių dalybos liekanos tikrinimas
 // Sukurkite sąrašą skaičių. Išspausdinkite tik tuos skaičius, kurie, dalijant iš 2, turi liekaną.
-// let numbers = [5, 8, 13, 22, 31, 40];
+
+//budas naudojant filter:
+
+let digits = [5, 8, 13, 22, 31, 40];
+
+// let oddNumbers = digits.filter(number => number % 2 !== 0); // su number % 2 !== 0 tikriname, ar skaičius nelyginis
+
+// console.log("Skaičiai su liekana dalijant iš 2:", oddNumbers);
+
+// naudojant for:
+
+
+let oddNumbers = [];
+
+for (let i = 0; i < digits.length; i++) {
+    if (digits[i] % 2 !== 0) { // Tikriname, ar skaičius nelyginis
+        oddNumbers.push(digits[i]); // Pridedame prie naujo sąrašo
+    }
+}
+
+console.log("Skaičiai su liekana dalijant iš 2:", oddNumbers);
+
  
