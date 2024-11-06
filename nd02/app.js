@@ -163,3 +163,49 @@ septintaUzduotis.innerHTML = visiKvadratai;
 }
 
 drawNestedSquares();
+
+//8 Iš simbolio &#9632; (kopijuoti visą žalią tekstą su kabliataškiu) sudėliokite žalią kvadratą turintį 41x41 šių simbolių. Kad kvadratas atrodytų “kvadratiškai” panaudokite css stilių ir papildomus tagus. #ciklasCikle
+
+
+const uzd8 = document.querySelector ('#uzd8');
+
+let kvadrat = '';
+
+for (let i = 0; i < 41; i++) { // Išorinis ciklas 41 eilutei
+    
+    for (let j = 0; j < 41; j++) { // Vidinis ciklas 41 simboliui kiekvienoje eilutėje
+        kvadrat += `<span>&#9632;</span>`;
+    }
+    kvadrat += `<br>`;
+   
+}
+
+uzd8.innerHTML = kvadrat;
+
+
+//9 Uždavinyje prieš tai nupieštam kvadratui nupieškite geltonas istrižaides (geltonai nudažykite atitinkamus simbolius). #ciklasCikle
+
+//tesinys 8tos:
+
+let kvadratSuIstrizainem = '';
+
+for (let i = 0; i < 41; i++) { 
+
+    let pirmasGeltonas = i;
+    let paskutinisGeltonas = 40 -i;
+
+    for (let j = 0; j < 41; j++) { 
+   
+
+        if( j=== pirmasGeltonas || j === paskutinisGeltonas ){
+            kvadratSuIstrizainem += `<span style ="color:yellow">&#9632;</span>`
+        }
+        else kvadratSuIstrizainem += `<span style ="color:green">&#9632;</span>`
+    }
+    kvadratSuIstrizainem += `<br>`;
+   
+}
+
+uzd8.innerHTML = kvadratSuIstrizainem;
+
+//10 Uždavinį atlikite atskirame html faile. Visame ekrane atsitiktine tvarka “išmėtykite“ 444 pusiau permatomus atsitiktinės spalvos ir atsitiktinio skersmens nuo 44 iki 144 (px) apskritimus. Apskritimai turi tolygiai (pagal funkciją rand()) dengti visą ekraną.#fun

@@ -37,3 +37,10 @@ e.target.style.backgroundColor = 'darkred'; // e.target reiskia ka spaudi tas ir
 
             
         })
+
+        //stabdyti boublinima reikia vaike:
+       
+        document.querySelector('.vaikas').addEventListener('click', e => {
+            e.stopPropagation();
+            document.querySelector('.vaikas').style.backgroundColor = 'darkblue';
+        });
