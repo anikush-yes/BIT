@@ -76,32 +76,3 @@ addEvents();
 
 
 
-// let cartHtml = ``;
-
-// for (let i = 0; i < C.length; i++) {
-
-//     const item = C[i];
-
-//     const img = item.img;
-//     const title = item.title;
-//     const price = item.price;
-//     const quantity = item.quantity;
-
-
-// const cartItemHtml = `
-//                         <li>
-//                             <img src="${img}" alt="${title}">
-//                             <div class="info">
-//                                 <h3>${title}</h3>
-//                                 <p>${price.toFixed(2)} €</p>
-//                                 <p>Quantity: ${quantity}</p>
-//                             </div>
-//                             <button>X</button>
-//                         </li>
-//                         `;
-
-
-// cartHtml += cartItemHtml;
-//                         }
-
-//                         document.querySelector(`#mini-cart ul`).innerHTML = cartHtml;

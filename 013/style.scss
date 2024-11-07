@@ -1,15 +1,8 @@
 #nr2 {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
-    gap: 10px;
-    margin: 20px;
+  div{
+    transition: 2s;
+  }
 }
 
-/* Kvadrato stilius */
-.kvadratas {
-    width: 80px;
-    height: 80px;
-    background-color: lightgray;
-    cursor: pointer;
-}
