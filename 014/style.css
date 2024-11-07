@@ -1,0 +1,10 @@
+#shape {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transition: border-radius 0.3s;
+    cursor: pointer;
+}
+.circle {
+    border-radius: 50%;
+}
