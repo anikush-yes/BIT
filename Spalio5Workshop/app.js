@@ -111,6 +111,7 @@ for (let i = 1; i < skaiciai.length; i++) {
 
 console.log("Didžiausias skaičius sąraše yra: " + didziausias);
 
+
  //--------------------------------------------------------------------------------------------
  
 // Raidžių skaičiavimas žodyje
