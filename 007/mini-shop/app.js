@@ -20,7 +20,7 @@ let C = [
         id: 3,
         img: 'komoda.jpg',
         title: 'Komoda',
-        price: 100,
+        price: 250,
         quantity: 7,
     },
 

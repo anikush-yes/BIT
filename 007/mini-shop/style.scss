@@ -108,12 +108,14 @@ header {
 
                 width: 320px;
                 padding: 10;
+               
 
                 li {
                     display: flex;
                     justify-content: space-between;
                     margin-bottom: 10px;
                     align-items: center;
+                    
 
                     img {
                         width: 50px;
@@ -170,17 +172,22 @@ header {
         width: 100%;
         max-width: $xl;
         padding: 50px 20px;
+       flex-wrap: wrap;
 
         .hero-products {
             display: flex;
             justify-content: space-between;
-            width: 100%;
+            gap: 20px;
+           width: 100%;
             flex-wrap: wrap;
 
             .product {
-                flex: 1;
-                min-width: 200px;
-                max-width: 400px;
+                flex: 1 1 20%; /* Užtikrina, kad kiekvienas produktas užims 20% vietos ir mažesniuose ekranuose telksis į naujas eilutes */
+                min-width: 150px; /* Užtikrina, kad elementai nebus per siauri */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            
 
 
                 img {
