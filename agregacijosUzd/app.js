@@ -89,3 +89,6 @@ A.forEach(num => {
 
 uzd3ForEach.innerText = "Surasti didžiausią neigiamą skaičių naudojant ForEach: " + maxNegativeForEach;
 console.log("Didžiausias neigiamas skaičius:", maxNegativeForEach);
+
+//----------------------------------------------------------------------------------------------------------------------
+//4. Surasti didžiausią skaičių, kuris yra mažesnis už 50;
