@@ -52,7 +52,7 @@ function displayAnimals() {
 
             // Užtikrinti, kad pavadinimai būtų paskirstyti visame ekrane
             const maxX = screenWidth - parseInt(fontSize)  - 200; // Atimame 20px, kad būtų vietos kraštuose
-            const maxY = screenHeight - parseInt(fontSize)  - 10; // Atimame 20px, kad būtų vietos kraštuose
+            const maxY = screenHeight - parseInt(fontSize)  - 5; // Atimame 20px, kad būtų vietos kraštuose
 
 
             const x = rand(0, maxX); // Atsitiktinė X pozicija
