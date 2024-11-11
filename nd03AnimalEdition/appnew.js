@@ -63,6 +63,12 @@ function displayAnimals() {
             animalElement.style.left = `${x}px`;
             animalElement.style.top = `${y}px`;
 
+            // Atsitiktinė animacijos trukmė:
+            const duration = rand(2, 5) + 's';
+            animalElement.classList.add('animal'); //pagaliau supratau kur iterpti, sukurtas elementas pries paleidziant animacija turejo gauti animal klase.
+            animalElement.style.animationDuration = duration;
+
+
             // Pridedame elementą į body
             document.body.appendChild(animalElement);
         });
