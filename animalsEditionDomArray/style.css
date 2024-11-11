@@ -1,0 +1,83 @@
+.circleAnimalIn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Tarpsnis tarp apskritimų */
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Sukuria apskritimą */
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.circleRedAnimalIn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+
+}
+
+.circleRed {
+
+    width: 100px;
+    height: 100px;
+    background-color:crimson;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.circlesGreenAnimalIn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+
+}
+
+.circleGreen {
+
+    width: 100px;
+    height: 100px;
+    background-color:green;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.circlesYellowLettersIn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.circleYellow {
+    width: 40px;
+    height: 40px;
+    background-color: yellow;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
