@@ -103,6 +103,24 @@ for (let i = 4; i <= 14; i++) {
 uzd5.innerHTML = cell;
 
 
+//5 uzduotis naudojant table:
+
+// let table = `<table border = 1 cellpadding = "10">`
+ 
+// for (let i = 4; i <= 14; i++) {
+//   let sum = 4 * i
+ 
+//   table+= `<tr><td>4*${i}</td> <td>${sum}</td></tr>`
+ 
+// }
+ 
+// table+= `</table>`
+ 
+ 
+ 
+ 
+// uzduotis5.innerHTML = table
+
 //6.  Naršyklėje nupieškite linija iš 444 “*” (tarp žvaigždučių tarpų nėra). Programiškai “suskaldykite” (naudodami tagus atskirom žvaigždučių grupėm) žvaigždutes taip, kad vienoje eilutėje nebūtų daugiau nei 44 “*”.
 
 const uzd6 = document.querySelector ('#uzd6');
