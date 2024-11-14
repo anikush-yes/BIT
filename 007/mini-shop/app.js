@@ -36,13 +36,17 @@
 
 //bandymas su local storage
 
-const obj = {}
 
-localStorage.setItem()
 
-let C = [];
+
+
+let C;
 
 const init = _ => {
+
+    C = JSON.parse(localStorage.getItem('cart')) ?? [];
+    
+
     const cartIcon = document.querySelector('[data-cart-icon]');
     cartIcon.addEventListener('click', _ => changeCart());
     cartRender();
@@ -53,6 +57,9 @@ const init = _ => {
 const updateCount = _ => {
     const count = C.reduce((acc, item) => acc + item.quantity, 0);
     document.querySelector('[data-cart-count]').textContent = count;
+
+    //dedame duomenis i local storage
+    localStorage.setItem('cart', JSON.stringify(C));
 }
 
 
