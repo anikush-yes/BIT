@@ -205,25 +205,57 @@ uzd8.innerHTML = kvadrat;
 
 //tesinys 8tos:
 
-let kvadratSuIstrizainem = '';
+// let kvadratSuIstrizainem = '';
 
-for (let i = 0; i < 41; i++) { 
+// for (let i = 0; i < 41; i++) { 
 
-    let pirmasGeltonas = i;
-    let paskutinisGeltonas = 40 -i;
+//     let pirmasGeltonas = i;
+//     let paskutinisGeltonas = 40 -i;
 
-    for (let j = 0; j < 41; j++) { 
+//     for (let j = 0; j < 41; j++) { 
    
 
-        if( j=== pirmasGeltonas || j === paskutinisGeltonas ){
-            kvadratSuIstrizainem += `<span style ="color:yellow">&#9632;</span>`
+//         if( j=== pirmasGeltonas || j === paskutinisGeltonas ){
+//             kvadratSuIstrizainem += `<span style ="color:yellow">&#9632;</span>`
+//         }
+//         else kvadratSuIstrizainem += `<span style ="color:green">&#9632;</span>`
+//     }
+//     kvadratSuIstrizainem += `<br>`;
+   
+// }
+
+
+//destytojo variantas
+
+let kvadratSuIstrizainem = "";
+
+let sizes = 41
+
+for (let i = 0; i < sizes; i++) {
+     let row = `<div style="display:flex">`
+
+     for (let j = 0; j < sizes; j++) {
+        let color = ""
+        if(i===j || sizes-1-i===j){
+            color = "yellow"
         }
-        else kvadratSuIstrizainem += `<span style ="color:green">&#9632;</span>`
-    }
-    kvadratSuIstrizainem += `<br>`;
-   
+
+        else {
+            color="green"
+        }
+        row+= `<span style= "color: ${color}">&#9632;</span>`
+        
+     }
+     row+=`</div>`;
+     kvadratSuIstrizainem+= row
+    
 }
 
-uzd8.innerHTML = kvadratSuIstrizainem;
+uzd9.innerHTML = kvadratSuIstrizainem;
+
+// uzd8.innerHTML = kvadratSuIstrizainem;
+
+
+
 
 //10 Uždavinį atlikite atskirame html faile. Visame ekrane atsitiktine tvarka “išmėtykite“ 444 pusiau permatomus atsitiktinės spalvos ir atsitiktinio skersmens nuo 44 iki 144 (px) apskritimus. Apskritimai turi tolygiai (pagal funkciją rand()) dengti visą ekraną.#fun

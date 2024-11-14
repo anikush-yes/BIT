@@ -34,69 +34,99 @@
 
 // ];
 
+//bandymas su local storage
+
+const obj = {}
+
+localStorage.setItem()
+
 let C = [];
- 
-const cartIcon = document.querySelector('[data-cart-icon]');
-const cartList = document.querySelector('[data-cart-list]');
- 
-cartIcon.addEventListener('click', _ => {
-    if (cartList.dataset.open === 'close') {
-        cartList.dataset.open = 'open';
-        cartList.style.maxHeight = cartList.scrollHeight + 'px';
+
+const init = _ => {
+    const cartIcon = document.querySelector('[data-cart-icon]');
+    cartIcon.addEventListener('click', _ => changeCart());
+    cartRender();
+    addEvents();
+    productsAction();
+}
+
+const updateCount = _ => {
+    const count = C.reduce((acc, item) => acc + item.quantity, 0);
+    document.querySelector('[data-cart-count]').textContent = count;
+}
+
+
+const changeCart = (changeView = true) => {
+    const cartList = document.querySelector('[data-cart-list]');
+
+    if (changeView) {
+        if (cartList.dataset.open === 'close') {
+            cartList.dataset.open = 'open';
+            cartList.style.maxHeight = cartList.scrollHeight + 'px';
+        } else {
+            cartList.dataset.open = 'close';
+            cartList.style.maxHeight = '0';
+        }
     } else {
-        cartList.dataset.open = 'close';
-        cartList.style.maxHeight = '0';
+        if (cartList.dataset.open === 'close') {
+            cartList.style.maxHeight = '0';
+        } else {
+            cartList.style.maxHeight = cartList.scrollHeight + 'px';
+        }
     }
-});
+}
 
 const showMessage = _ => {
     const message = document.querySelector('[data-show]');
     message.dataset.show = true;
     setTimeout(_ => {
         message.dataset.show = false;
-    }, 2000);
+    }, 1500);
 }
- 
+
+
 const productsAction = _ => {
- 
+
     const products = document.querySelectorAll('[data-product]');
- 
- 
+
     products.forEach(product => {
         const button = product.querySelector('button');
         const img = product.querySelector('img').src;
         const input = product.querySelector('input');
- 
+
         button.addEventListener('click', _ => {
             const id = parseInt(button.dataset.id);
             const name = button.dataset.name;
             const price = parseFloat(button.dataset.price);
             const quantity = parseInt(input.value);
- 
-            C.push(
-                {   id,
-                    img,
-                    title: name,
-                    price,
-                    quantity
-                });
- 
-                cartRender();
-                addEvents();
-                showMessage();
-                const cartList = document.querySelector('[data-cart-list]');
-                cartList.dataset.open = 'close';
-                cartList.style.maxHeight = '0';
-               
- 
+
+            const findItem = C.find(item => item.id === id);
+            if (findItem) {
+                findItem.quantity += quantity;
+            } else {
+                C.push(
+                    {
+                        id,
+                        img,
+                        title: name,
+                        price,
+                        quantity
+                    }
+                );
+            }
+
+            showMessage();
+            cartRender();
+            addEvents();
+            changeCart(false);
+            changeView(false);
+
         });
     });
- 
- 
- 
 }
- 
- 
+
+
+
 const cartRender = _ => {
     let cartHtml = '';
     C.forEach(item => {
@@ -112,14 +142,20 @@ const cartRender = _ => {
                             <button data-id=${id}>X</button>
                         </li>
                         `;
+        
+
         cartHtml += cartItemHtml;
     });
     if (!cartHtml) {
         cartHtml = '<li data-empty>Krepšelis tuščias</li>';
-    }
-    document.querySelector('[data-cart-list] ul').innerHTML = cartHtml;
+    } else {
+    const total = C.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    cartHtml += `<li data-empty>Total:  €${total.toFixed(2)}</li>`;
 }
- 
+    document.querySelector('[data-cart-list] ul').innerHTML = cartHtml;
+    updateCount();
+}
+
 const addEvents = _ => {
     document.querySelectorAll('[data-cart-list] ul li:not([data-empty])')
         .forEach(li => {
@@ -129,12 +165,10 @@ const addEvents = _ => {
                 C = C.filter(item => item.id !== parseInt(id));
                 cartRender();
                 addEvents();
-               
-               
             });
         });
 }
- 
-cartRender();
-addEvents();
-productsAction();
+
+
+
+init();
