@@ -19,23 +19,30 @@ function calculateBMI() {
     let category = '';
 
     // KMI kategorijos nustatymas
-    if (bmi < 18.5) {
-        category = 'Underweight';
-    } else if (bmi >= 18.5 && bmi < 25) {
-        category = 'Normal weight';
-    } else if (bmi >= 25 && bmi < 30) {
-        category = 'Overweight';
-    } else {
-        category = 'Obese';
-    }
 
-    // Rezultato atvaizdavimas
-    resultDiv.textContent = `Your BMI is ${bmi.toFixed(2)} (${category})`;
-    resultDiv.style.color = 'green';
-    resetButton.classList.remove('hidden');
+    let color;
+
+if (bmi < 18.5) {
+    category = 'Underweight';
+    color = 'red';  
+} else if (bmi >= 18.5 && bmi < 25) {
+    category = 'Normal weight';
+    color = 'green';  
+} else if (bmi >= 25 && bmi < 30) {
+    category = 'Overweight';
+    color = 'red'; 
+} else {
+    category = 'Obese';
+    color = 'red';  
 }
 
 
+    // Rezultato atvaizdavimas
+    resultDiv.textContent = `Your BMI is ${bmi.toFixed(2)} (${category})`;
+    resultDiv.style.color = color;
+    resetButton.classList.remove('hidden');
+    
+}
 
 
 // Laukų išvalymo funkcija
@@ -48,3 +55,5 @@ function resetInputs() {
 // Įvykių klausytojų pridėjimas
 calculateButton.addEventListener('click', calculateBMI);
 resetButton.addEventListener('click', resetInputs);
+
+
