@@ -109,3 +109,57 @@ do {
 || <---> &&
 
 */
+
+let jonasTuri = 0;
+
+const mociuteDave = rand(300, 700);
+
+jonasTuri += mociuteDave;
+
+while (jonasTuri <= 500){
+    console.log('Jonas važiuoja');
+const uzdirbo = rand(20, 100);
+jonasTuri += uzdirbo;
+
+
+}
+
+console.log(jonasTuri);
+
+//for in
+
+const masyvas = ['blue', 'red', 'green', 'yellow', 'black', 'white'];
+
+for ( let i = 0; i < masyvas.length; i++){
+    console.log(masyvas[i]);
+};
+
+
+for (let i in masyvas){
+    console.log(masyvas[i]);
+}
+
+//for off
+
+for (let color of masyvas){
+    console.log(color);
+}
+
+
+//jei turime nesunumeruota objekta:
+
+const objektas = {
+    color: 'blue',
+    weight: 100,
+    height: 200,
+    width: 300
+};
+
+
+// const raktas = 'color';
+//objektas.color
+
+for(let raktas in objektas){
+
+    console.log(raktas, objektas[raktas]);
+}
