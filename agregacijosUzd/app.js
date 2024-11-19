@@ -91,4 +91,29 @@ uzd3ForEach.innerText = "Surasti didžiausią neigiamą skaičių naudojant ForE
 console.log("Didžiausias neigiamas skaičius:", maxNegativeForEach);
 
 //----------------------------------------------------------------------------------------------------------------------
-//4. Surasti didžiausią skaičių, kuris yra mažesnis už 50;
+//4. Surasti didžiausią skaičių, kuris yra mažesnis už 50 naudojant For;
+
+let maxNumber = -Infinity; // Pradinė reikšmė - labai maža
+
+for (let i = 0; i < A.length; i++) {
+    if (A[i] < 50 && A[i] > maxNumber) {
+        maxNumber = A[i]; // Atnaujinkite reikšmę, jei skaičius mažesnis už 50 ir didesnis už dabartinį max
+    }
+}
+
+console.log("Didžiausias skaičius mažesnis už 50 yra:", maxNumber);
+document.getElementById("uzd4For").innerText = "Didžiausias skaičius mažesnis už 50 yra: " + maxNumber;
+
+// Surasti didžiausią skaičių, kuris yra mažesnis už 50 naudojant ForEach;
+
+let maxNumberLess = -Infinity;
+
+// Naudojame forEach ciklą
+A.forEach((number) => {
+    if (number < 50 && number > maxNumberLess) {
+        maxNumberLess = number;
+    }
+});
+
+// Pakeičiame elemento su ID "uzd4For" tekstą į rezultatą
+document.getElementById("uzd4ForEach").innerText = "Didžiausias skaičius mažesnis už 50 yra: " + maxNumberLess;
