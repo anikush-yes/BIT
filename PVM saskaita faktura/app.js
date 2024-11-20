@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Klaida:", error);
         });
 });
+
+// Sąskaitos faktūros generavimas
 function generateInvoice(data) {
     const tbody = document.querySelector("tbody");
     const totals = document.querySelectorAll(".totals td:last-child");
@@ -22,6 +24,7 @@ function generateInvoice(data) {
     // Apskaičiavimai
     let subtotal = 0;
 
+    // Pirmiausia apdorojame produktus ir apskaičiuojame tarpinę sumą
     data.items.forEach(item => {
         const discountValue =
             item.discount.type === "percentage"
@@ -43,36 +46,31 @@ function generateInvoice(data) {
         `;
     });
 
-    // Pridėti transportavimo kainą
-    subtotal += data.shippingPrice;
+   // Įtraukiame transportavimo kainą į tarpinę sumą
+   const shippingPrice = data.shippingPrice || 0;  // Jei nėra transportavimo kainos, priskiriame 0
+   subtotal += shippingPrice;
+
+   // Rodome transportavimo kainą
+   const shippingRow = document.createElement("tr");
+   shippingRow.innerHTML = `
+       <td>Transportavimo kaina:</td>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td>${shippingPrice.toFixed(2)} €</td>
+   `;
+
+ 
+
+   tbody.appendChild(shippingRow);
+
+
+    // Apskaičiuojame PVM ir galutinę sumą su PVM
     const vat = subtotal * 0.21;
     const totalWithVAT = subtotal + vat;
 
-    // Atvaizduoti sumas
-    totals[0].textContent = `${subtotal.toFixed(2)} €`;
-    totals[1].textContent = `${vat.toFixed(2)} €`;
-    totals[2].textContent = `${totalWithVAT.toFixed(2)} €`;
-
-    // Užpildyti kitas dalis (pardavėjas, pirkėjas ir t.t.)
-    document.querySelector(".header div:first-child").innerHTML = `
-        <h2>Pardavėjas</h2>
-        <p>${data.company.seller.name}</p>
-        <p>Adresas: ${data.company.seller.address}</p>
-        <p>Įmonės kodas: ${data.company.seller.code}</p>
-        <p>PVM kodas: ${data.company.seller.vat}</p>
-        <p>Telefonas: ${data.company.seller.phone}</p>
-        <p>El. paštas: ${data.company.seller.email}</p>
-    `;
-    document.querySelector(".header div:last-child").innerHTML = `
-        <h2>Pirkėjas</h2>
-        <p>${data.company.buyer.name}</p>
-        <p>Adresas: ${data.company.buyer.address}</p>
-        <p>Įmonės kodas: ${data.company.buyer.code}</p>
-        <p>PVM kodas: ${data.company.buyer.vat}</p>
-        <p>Telefonas: ${data.company.buyer.phone}</p>
-        <p>El. paštas: ${data.company.buyer.email}</p>
-    `;
-    document.querySelector("p:nth-of-type(1)").textContent = `Sąskaitos numeris: ${data.number}`;
-    document.querySelector("p:nth-of-type(2)").textContent = `Sąskaitos data: ${data.date}`;
-    document.querySelector("p:nth-of-type(3)").textContent = `Apmokėti iki: ${data.due_date}`;
+    // Rodome sumas
+    totals[0].textContent = `${subtotal.toFixed(2)} €`;  // Tarpinė suma
+    totals[1].textContent = `${vat.toFixed(2)} €`;      // PVM
+    totals[2].textContent = `${totalWithVAT.toFixed(2)} €`;  // Galutinė suma su PVM
 }
