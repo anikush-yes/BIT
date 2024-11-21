@@ -169,3 +169,4 @@ troleibus2.islipa(2);
 // troleibus2.ilipa(3);
 
 Troleibus.keleiviuSkaiciusVisuoseTroleibusuose ()
+
