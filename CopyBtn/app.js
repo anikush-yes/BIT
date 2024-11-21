@@ -14,7 +14,7 @@ navigator.clipboard.writeText(input.value).then(()=> {
 btn.innerText = "Copied"
 
 setTimeout(()=> {
-btn.innerText= "Copy"
+btn.innerText= "Copy";
 
 },3000)
 

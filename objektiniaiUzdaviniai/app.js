@@ -121,4 +121,51 @@ keleiviuSk.vaziuoja();
 
 //4. (STATIC) Sukurti metodą keleiviuSkaiciusVisuoseTroleibusuose(), kuris rodytų bendrą keleivių skaičių visuose Troleibusas objektuose. Bendram kelevių skaičiaus skaičiavimui sukurkite statinį metodą bendrasKeleiviuSkaicius(keleiviuSkaicius), kuris pridėtų arba atimtų keleivius iš statinės savybės visiKeleiviai (kurioje yra įrašytas bendras keleivių skaičius). Taip pat atitinkamai modifikuokite metodus ilipa(keleiviuSkaicius) ir islipa(keleiviuSkaicius).
 
+class Troleibus {
 
+    static visiKeleiviai = 0;
+
+    static keleiviuSkaiciusVisuoseTroleibusuose() {
+        console.log('Viso yra:' + this.visiKeleiviai);
+    }
+
+    static bendrasKeleiviuSkaicius (keleiviuSkaicius) {
+        this.visiKeleiviai += keleiviuSkaicius
+    }
+
+    constructor() {
+
+        this.keleiviuSkaicius = 0;
+    }
+
+    ilipa(keleiviuSkaicius) {
+
+        this.keleiviuSkaicius += keleiviuSkaicius;
+        this.constructor.visiKeleiviai += keleiviuSkaicius;
+    }
+    
+    islipa(keleiviuSkaicius) {
+
+        const liko = Math.max(this.keleiviuSkaicius - keleiviuSkaicius, 0);
+
+        this.constructor.bendrasKeleiviuSkaicius(liko - this.keleiviuSkaicius);
+
+        this.keleiviuSkaicius = liko;
+    }
+
+
+
+}
+
+const troleibus1 = new Troleibus();
+troleibus1.ilipa(5);
+troleibus1.islipa(2);
+troleibus1.ilipa(3);
+
+
+const troleibus2 = new Troleibus();
+troleibus2.ilipa(5);
+troleibus2.islipa(2);
+// troleibus2.ilipa(3);
+
+Troleibus.keleiviuSkaiciusVisuoseTroleibusuose ()

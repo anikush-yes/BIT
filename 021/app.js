@@ -5,7 +5,7 @@ class TV {
 
     static programos = ['TV3', 'LRT', 'TV6', 'TV1', 'Animal planet'];
 
-    static zinute;
+    static zinute = 'niekas dar nieko nera pasake';
     
     static rasytiZinute(zinute) {
         this.zinute = zinute;
@@ -100,7 +100,7 @@ tv3.pakeistiKanala(5);
 tv3.info();
 tv3.skaitytiZinute();
 
-const tv4 = new TVSony('Jonas');
+const tv4 = new TVSamsung('Jonas');
 
 
 tv4.ijungti();
