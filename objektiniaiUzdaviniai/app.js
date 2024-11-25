@@ -48,13 +48,13 @@ manoKibiras.kiekPririnktaAkmenu(); // Išvedame kiekį
 class Pinigine {
 
     constructor() {
-this.popieriniaiPinigai = 0;
-this.metaliniaiPinigai = 0;
+        this.popieriniaiPinigai = 0;
+        this.metaliniaiPinigai = 0;
 
     }
 
-    ideti (kiekis){
-        if (kiekis <=2) {
+    ideti(kiekis) {
+        if (kiekis <= 2) {
             this.metaliniaiPinigai += kiekis;
         }
         else {
@@ -62,13 +62,13 @@ this.metaliniaiPinigai = 0;
         }
     }
 
-    skaicioti(){
+    skaicioti() {
 
-    //    let suma = this.popieriniaiPinigai + this.metaliniaiPinigai;
-       console.log(`Suma metalinių pinigu: ${this.metaliniaiPinigai}, Popierinių pinigų suma:${this.popieriniaiPinigai} `)
+        //    let suma = this.popieriniaiPinigai + this.metaliniaiPinigai;
+        console.log(`Suma metalinių pinigu: ${this.metaliniaiPinigai}, Popierinių pinigų suma:${this.popieriniaiPinigai} `)
     }
 }
-const pinigineSuma = new Pinigine ();
+const pinigineSuma = new Pinigine();
 pinigineSuma.ideti(1);
 pinigineSuma.ideti(1);
 pinigineSuma.ideti(1);
@@ -107,7 +107,7 @@ class Troleibusas {
     }
 
     vaziuoja() {
-        console.log (`Troleibuse važiuoja ${this.keleiviuSkaicius} žmonių`);
+        console.log(`Troleibuse važiuoja ${this.keleiviuSkaicius} žmonių`);
     }
 
 }
@@ -129,7 +129,7 @@ class Troleibus {
         console.log('Viso yra:' + this.visiKeleiviai);
     }
 
-    static bendrasKeleiviuSkaicius (keleiviuSkaicius) {
+    static bendrasKeleiviuSkaicius(keleiviuSkaicius) {
         this.visiKeleiviai += keleiviuSkaicius
     }
 
@@ -143,7 +143,7 @@ class Troleibus {
         this.keleiviuSkaicius += keleiviuSkaicius;
         this.constructor.visiKeleiviai += keleiviuSkaicius;
     }
-    
+
     islipa(keleiviuSkaicius) {
 
         const liko = Math.max(this.keleiviuSkaicius - keleiviuSkaicius, 0);
@@ -168,5 +168,87 @@ troleibus2.ilipa(5);
 troleibus2.islipa(2);
 // troleibus2.ilipa(3);
 
-Troleibus.keleiviuSkaiciusVisuoseTroleibusuose ()
+Troleibus.keleiviuSkaiciusVisuoseTroleibusuose()
 
+
+
+
+//-------------------------------------------------------------------------------
+//Sukurti klasę Stikline. Sukurti savybes turis ir kiekis. Turis turi būti pasirenkamas objekto kūrimo metu. Parašyti metodą ipilti(kiekis), kuris keistų savybę kiekis. Jeigu stiklinės tūris yra mažesnis nei pilamas kiekis- kiekis netelpa ir būna lygus tūriui. Parašyti metodą ispilti(), kuris grąžiną kiekį. Pilant išpilamas visas kiekis, tas kas netelpa, nuteka per stalo viršų.  Sukurti metodą stiklinejeYra(), kuris į konsolę atspausdintų kiek stiklinėje yra skysčio. Sukurti tris stiklinės objektus su tūriais: 200, 150, 100. Didžiausią pripilti pilną ir tada ją ispilti į mažesnę stiklinę, o mažesnę į dar mažesnę.
+
+
+class Stikline {
+
+    constructor(turis) {
+        this.kiekis = 0;
+        this.turis = turis;
+    }
+    ipilti(kiekis) {
+        this.kiekis = Math.min(this.turis, this.kiekis + kiekis);
+        return this;
+    }
+
+    ispilti() {
+        const kiekis = this.kiekis;
+        this.kiekis = 0;
+        return kiekis;
+    }
+    stiklinejeYra() {
+        console.log(`Stiklineje, kurios tūris ${this.turis} yra ${this.kiekis} skysčio`);
+    }
+
+}
+
+const stikline100 = new Stikline(100);
+const stikline150 = new Stikline(150);
+const stikline200 = new Stikline(200);
+
+
+stikline100.ipilti(stikline150.ipilti(stikline200.ipilti(500).ispilti()).ispilti());
+
+stikline100.stiklinejeYra();
+stikline150.stiklinejeYra();
+stikline200.stiklinejeYra();
+
+
+//Sukurti klasę Grybas. Sukurti klasę Krepsys. Krepsys, kuri turi savybę dydis,kuriai konstruktoriuje yra priskiriama reikšmė 500 ir savybę prikrauta (kuri pradžioje lygi 0). Grybas turi tris savybes, kurios taip pat yra paskaičiuojamos konstruktoriuje: valgomas, sukirmijes, svoris. Kuriant Grybo objektą jo savybės turi būti atsitiktinai (rand funkcija) priskiriamos taip: valgomas- true arba false, sukirmijes- true arba false ir svoris- nuo 5 iki 45. Eiti grybauti, t.y. Kurti naujus Grybas objektus, jeigu nesukirmijęs ir valgomas dėti į Krepsi objektą, t.y. Vykdyti deti(grybas) metodą kol bus pririnktas pilnas krepšys nesukirmijusių ir valgomų grybų (gali būti truputį daugiau nei dydis).
+
+
+class Grybas {
+
+
+    constructor() {
+        this.svoris = this.#rand(5, 45);
+        this.valgomas = !this.#rand(0, 1);
+        this.sukirmijes = !this.#rand(0, 1);
+    }
+
+    #rand(min, max) {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+    }
+
+}
+
+class Krepsys {
+
+    constructor() {
+        this.prideta = 0;
+        this.dydis = 500;
+    }
+
+    deti(grybas) {
+        if (grybas.valgomas && !grybas.sukirmijes) {
+            this.prideta += grybas.svoris;
+        }
+        return 500 > this.prideta;
+
+    }
+}
+
+const krepsys = new Krepsys();
+
+do { } while (krepsys.deti(new Grybas()));
+
+console.log(krepsys);
