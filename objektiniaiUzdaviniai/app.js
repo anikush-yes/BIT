@@ -252,3 +252,41 @@ const krepsys = new Krepsys();
 do { } while (krepsys.deti(new Grybas()));
 
 console.log(krepsys);
+
+//----------------------------------
+
+
+//Map, panasus i masyva
+
+
+
+const manoMap = new Map();
+ 
+manoMap.set('vardas', 'Jonas'); // key, value
+manoMap.set('pavarde', 'Jonaitis');
+manoMap.set('amzius', 99);
+manoMap.set({a: 1}, 'Petras');
+manoMap.set('vardas', 'Jolanta');
+manoMap.set({a: 1}, 'Antanas');
+manoMap.set(function(){return 2}, 'Jonas');
+manoMap.set([1, 2, 3], 'Jonas');
+manoMap.delete('vardas');
+ 
+console.log(manoMap.size);
+ 
+console.log(manoMap);
+ 
+console.log(manoMap.get('vardas')); // Jolanta
+console.log(manoMap.get({a: 1}));
+ 
+const objektas = {
+    vardas: 'Jonas',
+    pavarde: 'Jonaitis',
+    amzius: 99
+};
+ 
+console.log(objektas);
+ 
+manoMap.forEach((value, key) => {
+    console.log(key, value);
+});
