@@ -43,7 +43,6 @@ h2 {
 p {
     font-size: 14px;
     color: #555;
-    line-height: 1.5;
 }
 
 /* Lentelė */
@@ -85,7 +84,7 @@ tfoot td {
     background-color: #f9f9f9;
 }
 
-/* Išskirtinis stilius transportavimo kainai */
+Išskirtinė stilius transportavimo kainai
 tfoot tr:last-child {
     background-color: #f1f1f1;
     font-weight: bold;
@@ -111,33 +110,3 @@ tfoot tr:last-child {
     }
 }
 
-/* Dinamiškai sugeneruoto turinio stilius */
-#seller, #buyer {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-#seller h2, #buyer h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-/* Kiekvienos eilutės (prekių) stilius */
-table tr {
-    border-bottom: 1px solid #eee;
-}
-
-/* Specialus stilius pirmam stulpeliui lentelėje */
-th, td:first-child {
-    font-weight: bold;
-}
-
-/* Specialūs stiliai, jei nėra duomenų arba klaidų */
-.error {
-    color: red;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-}
