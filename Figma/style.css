@@ -635,21 +635,21 @@ h3 {
 }
 
 
-.lastArticle button {
+.cntrOfLastArticle button {
 
     width: 200px;
     height: 60px;
     background-color: transparent;
-    border: 1.4px solid #458FF6;
+    /* border: 1.4px solid #458FF6;
     border-radius: 55px;
     opacity: 0px;
-    color: #458FF6;
+    color: #458FF6; */
 
 
 
 }
 
-.lastArticle button:hover {
+.cntrOfLastArticle button:hover {
 
 
     background-color: #458FF6;
