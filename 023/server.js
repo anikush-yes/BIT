@@ -33,6 +33,15 @@ app.get('/briedis/:color/:size', (req, res) => {
     res.json(data);
   });
 
+  app.get('/briedis1', (req, res) => {
+    const { color = '000000', size = '20' } = req.query;
+    const data = {
+      spalva: color,
+      dydis: size,
+    }
+    res.json(data);
+  });
+
 ///1.as informacijos perdavimo budas per params: http://localhost:3000/bebras/green/50:
 app.get('/barsukas/:color/:size', (req, res) => {
     // const color = req.params.color;
