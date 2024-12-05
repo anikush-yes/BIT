@@ -18,11 +18,26 @@ const bottom = fs.readFileSync("./html/bottom.html", "utf8");
  
  
 app.get("/", (req, res) => {
-  res.send("Labas, Bebrai!")
+
+  let books = fs.readFileSync("./data/books.json", "utf8");
+  books = JSON.parse(books);
+
+  const file = top + fs.readFileSync("./html/read.html", "utf8") + bottom;
+  const template = handlebars.compile(file);
+  const data = { pageTitle: 'Knygų sąrašas',
+    domain: domain,
+    books
+    
+
+   };
+  const html = template(data);
+  res.send(html);
 });
+
+
  
 app.get("/create", (req, res) => {
-  let file = top + fs.readFileSync("./html/create.html", "utf8") + bottom;
+  const file = top + fs.readFileSync("./html/create.html", "utf8") + bottom;
   const template = handlebars.compile(file);
   const data = { manoKintamasis: "Labas", pageTitle: "Nauja knyga",
     domain: domain
