@@ -34,16 +34,49 @@ const getMessages = msg => {
   return message;
 }
 
+const addToSession = (req, key, value) => {
+  const sessionData = fs.readFileSync('./data/session.json', 'utf8');
+  const sessions = JSON.parse(sessionData);
+  const session = sessions.find(s => s.id === req.session.id);
+  session.data[key] = value;
+  fs.writeFileSync('./data/session.json', JSON.stringify(sessions));
+}
 
 //MIDDLEWARE
 
-const cookiesManager = (req, res, next) => {
-  const visits = req.cookies.visits || 0;
-  res.cookie('visits', parseInt(visits) + 1, { maxAge: 1000 * 60 * 60 * 24 * 365 });
+
+const sessionManager = (req, res, next) => {
+  let sessionId = req.cookies.session || '';
+  let sessionData = fs.readFileSync('./data/session.json', 'utf8');
+  sessionData = JSON.parse(sessionData);
+  const findSession = sessionData.find(s => s.id === sessionId);
+  if (sessionId && findSession) {
+    req.session = structuredClone(findSession);
+  } else {
+    sessionId = uuidv4();
+    const session = { id: sessionId, data: {} };
+    req.session = session;
+    sessionData.push(session);
+    sessionData = JSON.stringify(sessionData);
+    fs.writeFileSync('./data/session.json', sessionData);
+  }
+  res.cookie('session', sessionId, { maxAge: 1000 * 60 * 60 * 24 });
+ 
   next();
 }
  
-app.use(cookiesManager);
+
+const oldDataManager = (req, res, next) => {
+  const requestMethod = req.method;
+  if (requestMethod === 'GET') {
+    addToSession(req, 'oldData', {});
+  } else {
+    addToSession(req, 'oldData', req.body);
+  }
+  next();
+}
+app.use(sessionManager);
+app.use(oldDataManager);
 
 
 
@@ -72,12 +105,15 @@ app.get('/create', (req, res) => {
   const file = top + fs.readFileSync('./html/create.html', 'utf8') + bottom;
   const template = handlebars.compile(file);
   const data = {
-  
+
     pageTitle: 'Nauja knyga',
     domain: domain,
-    message: getMessages(req.query.msg)
+    message: getMessages(req.query.msg),
+    oldData: req.session.data.oldData || {}
   };
   const html = template(data);
+  addToSession(req, 'oldData', {});
+
   res.send(html);
 
 });
@@ -169,6 +205,7 @@ app.post('/store', (req, res) => {
 
   const { title, author, year, genre, isbn, pages } = req.body;
   const id = uuidv4();
+
 
   // need validation
 
