@@ -5,6 +5,9 @@ const mysql = require('mysql');
 
 const port = 6457;
 app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
 
 
 const con = mysql.createConnection({
@@ -26,7 +29,7 @@ const con = mysql.createConnection({
 
 
 
-app.get('/', (req, res) => {
+app.get('/read', (req, res) => {
 
     // uzklausa SQL duomenu bazei:
 
@@ -34,7 +37,9 @@ app.get('/', (req, res) => {
 
     SELECT id, name,height, type 
     FROM trees
-    ORDER BY height DESC 
+    -- WHERE type = 'Lapuotis'OR type = 'Spygliuotis'
+    -- ORDER BY name, height DESC
+    -- LIMIT 3, 2
 
     `;
 
