@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{domain}}style.css">
     <script src="{{domain}}app.js" defer></script>
-
     <title>{{pageTitle}}</title>
 </head>
 <body>
     {{#if nomenu}}
-{{else}}
+    {{else}}
     <header>
-        <nav>
+        <nav class="d-flex justify-content-between">
             <ul class="nav">
                 <li class="nav-item"><a class="nav-link" href="{{domain}}">Pradinis</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{domain}}create">Pridėti knygą</a></li>
             </ul>
+            {{#if loggedIn}}
+            <form action="{{domain}}login?logout=1" method="post" class="d-flex m-2">
+                <button type="submit" class="nav-link">Atsijungti, {{user}}</button>
+            </form>
+            {{else}}
+            <a href="{{domain}}login" class="nav-link m-2">Prisijungti</a>
+            {{/if}}
         </nav>
     </header>
     {{/if}}
+
     {{#if message}}
     <div class="container" data-msg-container>
         <div class="row justify-content-center">
@@ -29,4 +36,3 @@
         </div>
     </div>
     {{/if}}
-    

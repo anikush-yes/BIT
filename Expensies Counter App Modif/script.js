@@ -52,11 +52,77 @@ function updateTotalAmount() {
 function renderExpenseList() {
     expenseList.innerHTML = '';  // Išvalome sąrašą
 
-    expenses.forEach(expense => {
+    expenses.forEach((expense, index) => {
         const li = document.createElement('li');
-        li.textContent = `${expense.name}: €${expense.amount.toFixed(2)}`;
+        li.innerHTML = `
+            ${expense.name}: €${expense.amount.toFixed(2)} 
+            <button onclick="editExpense(${index})">Redaguoti</button>
+            <button onclick="deleteExpense(${index})">Šalinti</button>
+        `;
         expenseList.appendChild(li);
     });
+}
+
+// Funkcija redaguoti išlaidą
+function editExpense(index) {
+    const expense = expenses[index];
+    expenseNameInput.value = expense.name;
+    expenseAmountInput.value = expense.amount;
+
+    // Pašaliname išlaidas ir išsaugome pakeitimus
+    addExpenseButton.textContent = 'Atnaujinti išlaidą';
+
+    // Keičiam pridėjimo funkciją į atnaujinimo funkciją
+    addExpenseButton.removeEventListener('click', addExpense);
+    addExpenseButton.addEventListener('click', function() {
+        updateExpense(index);
+    });
+}
+
+// Funkcija atnaujinti išlaidą
+function updateExpense(index) {
+    const name = expenseNameInput.value.trim();
+    const amount = parseFloat(expenseAmountInput.value.trim());
+
+    // Patikriname, ar įvesti duomenys yra tinkami
+    if (name === '' || isNaN(amount) || amount <= 0) {
+        alert('Prašome įvesti tinkamus duomenis.');
+        return;
+    }
+
+    expenses[index].name = name;
+    expenses[index].amount = amount;
+
+    // Išsaugome atnaujintas išlaidas į localStorage
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+
+    // Atnaujiname bendrą sumą
+    updateTotalAmount();
+
+    // Atnaujiname sąrašą
+    renderExpenseList();
+
+    // Išvalome laukus ir grąžiname mygtuką į pradinę būseną
+    expenseNameInput.value = '';
+    expenseAmountInput.value = '';
+    addExpenseButton.textContent = 'Pridėti išlaidą';
+
+    addExpenseButton.removeEventListener('click', updateExpense);
+    addExpenseButton.addEventListener('click', addExpense);
+}
+
+// Funkcija pašalinti išlaidą
+function deleteExpense(index) {
+    expenses.splice(index, 1);  // Pašaliname išlaidą iš masyvo
+
+    // Išsaugome atnaujintą sąrašą į localStorage
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+
+    // Atnaujiname bendrą sumą
+    updateTotalAmount();
+
+    // Atnaujiname sąrašą
+    renderExpenseList();
 }
 
 // Pridėti išlaidą paspaudus mygtuką
