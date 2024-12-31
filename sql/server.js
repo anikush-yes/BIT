@@ -54,6 +54,27 @@ app.get('/read', (req, res) => {
 
 });
 
+app.post('/create', (req, res) => {
+ 
+    // INSERT INTO table_name (column1, column2, column3, ...)
+    // VALUES (value1, value2, value3, ...);
+ 
+    const sql = `
+        INSERT INTO trees (name, height, type)
+        VALUES ('${req.body.name}', ${req.body.height}, '${req.body.type}')
+    `;
+ 
+    con.query(sql, (err, data) => {
+        if (err) {
+            res.send('Klaida įrašant duomenis');
+            return;
+        }
+        res.send('OK');
+    });
+ 
+ 
+});
+
 
 
 
